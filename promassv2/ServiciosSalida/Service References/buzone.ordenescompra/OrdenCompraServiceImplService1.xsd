@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.ws.promass.buzone.com/" targetNamespace="http://services.ws.promass.buzone.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="insertOrdenCompra" type="tns:insertOrdenCompra" />
+  <xs:element name="insertOrdenCompraResponse" type="tns:insertOrdenCompraResponse" />
+  <xs:element name="linea" type="tns:linea" />
+  <xs:element name="listaIeps" type="tns:listaIeps" />
+  <xs:element name="listaIsr" type="tns:listaIsr" />
+  <xs:element name="listaIva" type="tns:listaIva" />
+  <xs:element name="ordenCompra" type="tns:ordenCompra" />
+  <xs:complexType name="insertOrdenCompra">
+    <xs:sequence>
+      <xs:element name="oc" type="tns:ordenCompra" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ordenCompra">
+    <xs:sequence>
+      <xs:element name="user" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="codigoSN" type="xs:string" />
+      <xs:element name="rfcProveedor" type="xs:string" />
+      <xs:element name="rfcReceptor" type="xs:string" />
+      <xs:element name="docEntry" type="xs:int" />
+      <xs:element name="cas" type="xs:string" />
+      <xs:element name="folioRecepcion" type="xs:string" />
+      <xs:element name="codigoMoneda" type="xs:string" />
+      <xs:element name="subTotal" type="xs:decimal" />
+      <xs:element name="impuestoRetenido" type="xs:decimal" />
+      <xs:element name="impuestoTrasladado" type="xs:decimal" />
+      <xs:element name="total" type="xs:decimal" />
+      <xs:element name="descuento" type="xs:decimal" />
+      <xs:element name="tipoCambio" type="xs:decimal" />
+      <xs:element name="formaPago" type="xs:string" />
+      <xs:element name="metodoPago" type="xs:string" />
+      <xs:element name="tipoComprobante" type="xs:string" />
+      <xs:element name="condicionesPago" type="xs:string" />
+      <xs:element name="usoCFDI" type="xs:string" />
+      <xs:element name="accion" type="xs:string" />
+      <xs:element name="activo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="lineas" type="tns:linea" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="linea">
+    <xs:sequence>
+      <xs:element name="linea" type="xs:int" />
+      <xs:element name="descripcion" type="xs:string" />
+      <xs:element name="importe" type="xs:decimal" />
+      <xs:element name="codigoArticulo" type="xs:string" />
+      <xs:element name="cantidadArticulos" type="xs:decimal" />
+      <xs:element name="claveUnidad" type="xs:string" />
+      <xs:element name="precio" type="xs:decimal" />
+      <xs:element name="descuento" type="xs:decimal" />
+      <xs:element name="unidad" type="xs:string" />
+      <xs:element name="noIdentificacion" type="xs:string" />
+      <xs:element name="noCuentaPredial" type="xs:string" />
+      <xs:element name="cveProducto" type="xs:string" />
+      <xs:element name="impuestosTrasladados" type="tns:impuestosTrasladados" />
+      <xs:element name="impuestosRetenidos" type="tns:impuestosRetenidos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="impuestosTrasladados">
+    <xs:sequence>
+      <xs:element name="listaIVA" type="tns:listaIva" />
+      <xs:element name="listaIEPS" type="tns:listaIeps" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaIva">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="IVA" type="tns:iva" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="iva">
+    <xs:sequence>
+      <xs:element name="numeroImpuesto" type="xs:int" />
+      <xs:element name="base" type="xs:decimal" />
+      <xs:element name="impuesto" type="xs:string" />
+      <xs:element name="tipoFactor" type="xs:string" />
+      <xs:element name="tasa" type="xs:decimal" />
+      <xs:element name="importe" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaIeps">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="IEPS" type="tns:ieps" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ieps">
+    <xs:sequence>
+      <xs:element name="numeroImpuesto" type="xs:int" />
+      <xs:element name="base" type="xs:decimal" />
+      <xs:element name="impuesto" type="xs:string" />
+      <xs:element name="tipoFactor" type="xs:string" />
+      <xs:element name="tasa" type="xs:decimal" />
+      <xs:element name="importe" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="impuestosRetenidos">
+    <xs:sequence>
+      <xs:element name="listaIVA" type="tns:listaIva" />
+      <xs:element name="listaIEPS" type="tns:listaIeps" />
+      <xs:element name="listaISR" type="tns:listaIsr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaIsr">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="ISR" type="tns:isr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="isr">
+    <xs:sequence>
+      <xs:element name="numeroImpuesto" type="xs:int" />
+      <xs:element name="base" type="xs:decimal" />
+      <xs:element name="impuesto" type="xs:string" />
+      <xs:element name="tipoFactor" type="xs:string" />
+      <xs:element name="tasa" type="xs:decimal" />
+      <xs:element name="importe" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertOrdenCompraResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoError" type="xs:string" />
+      <xs:element minOccurs="0" name="estatus" type="xs:string" />
+      <xs:element minOccurs="0" name="mensajeError" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

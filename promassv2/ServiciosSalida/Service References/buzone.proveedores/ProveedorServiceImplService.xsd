@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.ws.promass.buzone.com/" targetNamespace="http://services.ws.promass.buzone.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="direccion" type="tns:direccion" />
+  <xs:element name="insertProveedor" type="tns:insertProveedor" />
+  <xs:element name="insertProveedorResponse" type="tns:insertProveedorResponse" />
+  <xs:element name="proveedor" type="tns:proveedor" />
+  <xs:complexType name="insertProveedor">
+    <xs:sequence>
+      <xs:element name="prov" type="tns:proveedor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="proveedor">
+    <xs:sequence>
+      <xs:element name="user" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="codigoSN" type="xs:string" />
+      <xs:element name="razonSocial" type="xs:string" />
+      <xs:element name="rfc" type="xs:string" />
+      <xs:element name="nacional" type="xs:string" />
+      <xs:element name="nombre" type="xs:string" />
+      <xs:element name="email" type="xs:string" />
+      <xs:element name="regimenFiscal" type="xs:int" />
+      <xs:element name="lugarExpedicion" type="xs:string" />
+      <xs:element name="accion" type="xs:string" />
+      <xs:element name="activo" type="xs:string" />
+      <xs:element maxOccurs="unbounded" name="direcciones" type="tns:direccion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="direccion">
+    <xs:sequence>
+      <xs:element name="calle" type="xs:string" />
+      <xs:element name="exterior" type="xs:string" />
+      <xs:element name="interior" type="xs:string" />
+      <xs:element name="localidad" type="xs:string" />
+      <xs:element name="colonia" type="xs:string" />
+      <xs:element name="municipio" type="xs:string" />
+      <xs:element name="estado" type="xs:string" />
+      <xs:element name="pais" type="xs:string" />
+      <xs:element name="codigoPostal" type="xs:string" />
+      <xs:element name="referencia" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertProveedorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoError" type="xs:string" />
+      <xs:element minOccurs="0" name="estatus" type="xs:string" />
+      <xs:element minOccurs="0" name="mensajeError" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

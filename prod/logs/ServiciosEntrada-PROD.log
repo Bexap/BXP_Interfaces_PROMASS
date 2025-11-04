@@ -1,0 +1,51 @@
+2023-05-22 20:52:14,666 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-22 20:52:14,682 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-22 20:52:14,683 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-22 20:52:43,569 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-22 20:52:44,103 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-22 20:52:44,105 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-22 20:53:11,455 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-22 20:53:22,015 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-22 20:53:30,967 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-22 22:12:49,828 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-22 22:13:20,599 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-22 22:13:20,677 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-22 22:15:13,757 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-22 22:15:17,115 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-22 22:15:17,116 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-22 22:21:21,383 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-22 22:21:21,400 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-22 22:21:21,402 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-22 22:21:42,750 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-22 22:21:42,766 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-22 22:21:42,767 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-22 22:51:34,103 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-22 22:51:34,119 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-22 22:51:34,121 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-23 11:32:20,113 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-23 11:32:20,130 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-23 11:32:20,131 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-23 11:33:15,196 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-23 11:33:15,213 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-23 11:33:15,214 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-23 11:42:57,992 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-23 11:42:58,008 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-23 11:42:58,010 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-23 11:43:01,369 INFO  SAPConnector.Services.SessionPool - Sesiones Creadas: 1
+2023-05-24 10:38:55,581 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-24 10:38:55,597 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-24 10:38:55,598 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-24 10:39:16,971 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-24 10:39:16,988 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-24 10:39:16,989 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-24 10:46:56,939 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-24 10:46:56,955 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-24 10:46:56,956 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-24 10:50:28,291 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-05-24 10:50:28,308 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-05-24 10:50:28,309 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-05-24 10:50:30,998 INFO  SAPConnector.Services.SessionPool - Sesiones Creadas: 1
+2023-06-05 17:53:19,053 INFO  ServiciosEntrada.Global - Iniciando Interfases SAP
+2023-06-05 17:53:19,070 INFO  SAPConnector.Services.SessionPool - Iniciando pool de sesiones SAP: 1
+2023-06-05 17:53:19,070 DEBUG SAPConnector.Services.SessionPool -    Creando sesion SAP
+2023-06-05 17:53:26,644 INFO  SAPConnector.Services.SessionPool - Sesiones Creadas: 1

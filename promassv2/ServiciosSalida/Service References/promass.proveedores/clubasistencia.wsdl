@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://201.161.41.142/clubAsisWs/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://201.161.41.142/clubAsisWs/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://201.161.41.142/clubAsisWs/">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="insertProveedorRequest">
+    <wsdl:part name="codigoProveedor" type="xsd:string" />
+    <wsdl:part name="nacional" type="xsd:string" />
+    <wsdl:part name="razonSocial" type="xsd:string" />
+    <wsdl:part name="rfc" type="xsd:string" />
+    <wsdl:part name="tipoOperacion" type="xsd:string" />
+    <wsdl:part name="estatusProveedor" type="xsd:string" />
+    <wsdl:part name="celular" type="xsd:string" />
+    <wsdl:part name="email" type="xsd:string" />
+    <wsdl:part name="fax" type="xsd:string" />
+    <wsdl:part name="nombre" type="xsd:string" />
+    <wsdl:part name="notas1" type="xsd:string" />
+    <wsdl:part name="notas2" type="xsd:string" />
+    <wsdl:part name="puesto" type="xsd:string" />
+    <wsdl:part name="telefono1" type="xsd:string" />
+    <wsdl:part name="telefono2" type="xsd:string" />
+    <wsdl:part name="titulo" type="xsd:string" />
+    <wsdl:part name="calle" type="xsd:string" />
+    <wsdl:part name="ciudad" type="xsd:string" />
+    <wsdl:part name="codigoPostal" type="xsd:string" />
+    <wsdl:part name="colonia" type="xsd:string" />
+    <wsdl:part name="estado" type="xsd:string" />
+    <wsdl:part name="exterior" type="xsd:string" />
+    <wsdl:part name="interior" type="xsd:string" />
+    <wsdl:part name="municipio" type="xsd:string" />
+    <wsdl:part name="pais" type="xsd:string" />
+    <wsdl:part name="tipoProveedor" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="insertProveedorResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="Grupo PromassPortType">
+    <wsdl:operation name="insertProveedor">
+      <wsdl:input message="tns:insertProveedorRequest" />
+      <wsdl:output message="tns:insertProveedorResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Grupo PromassBinding" type="tns:Grupo PromassPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="insertProveedor">
+      <soap:operation soapAction="http://201.161.41.142/clubAsisWs/servicios.php/insertProveedor" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://201.161.41.142/clubAsisWs/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://201.161.41.142/clubAsisWs/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Grupo Promass">
+    <wsdl:port name="Grupo PromassPort" binding="tns:Grupo PromassBinding">
+      <soap:address location="http://201.161.41.142/clubAsisWs/servicios.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
