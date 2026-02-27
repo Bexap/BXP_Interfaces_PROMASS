@@ -45,6 +45,10 @@ namespace SAPConnector.Services
 
                 ravenClient.Capture(new SharpRaven.Data.SentryEvent(e));
             }
+            finally
+            {
+                Desconectar();
+            }
 
             return this.resultadoVO;
         }
@@ -76,7 +80,7 @@ namespace SAPConnector.Services
             log.Error(resultadoVO);
         }
 
-        protected void Conectar (string companyDB)
+        protected void Conectar (string companyDB, string empresaId)
         {
             log.Debug("   Creando conexion a SAP");
 
@@ -92,7 +96,7 @@ namespace SAPConnector.Services
 
             nuevaConexion.LicenseServer = ConfigurationManager.AppSettings["LicenseServer"];
             nuevaConexion.UserName = ConfigurationManager.AppSettings["SAPUserName"];
-            nuevaConexion.Password = ConfigurationManager.AppSettings["SAPPassword"];
+            nuevaConexion.Password = ConfigurationManager.AppSettings["SAPPassword_" + empresaId];
 
             nuevaConexion.language = BoSuppLangs.ln_Spanish_La;
 

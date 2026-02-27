@@ -142,7 +142,7 @@ namespace ServiciosEntrada.Services
 
             EntidadVO.EntidadActual = EntidadVO.getEntidades()[ordenVentaVO.IDBaseDatos.ToString()];
             CatalogosDAO catalogosDAO = new CatalogosDAO(EntidadVO.EntidadActual.ConnectionString);
-            Conectar(EntidadVO.EntidadActual.CompanyDB);
+            Conectar(EntidadVO.EntidadActual.CompanyDB, EntidadVO.EntidadActual.Id);
 
             if (ordenVentaVO == null)
             {

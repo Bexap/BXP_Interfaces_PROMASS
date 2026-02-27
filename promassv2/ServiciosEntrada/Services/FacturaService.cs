@@ -260,7 +260,7 @@ namespace ServiciosEntrada.Services
             }
 
             CatalogosDAO catalogosDAO = new CatalogosDAO(EntidadVO.EntidadActual.ConnectionString);
-            Conectar(EntidadVO.EntidadActual.CompanyDB);
+            Conectar(EntidadVO.EntidadActual.CompanyDB, EntidadVO.EntidadActual.Id);
 
             if (catalogosDAO.IsValidProveedor(facturaVO.CodigoProveedor) == false)
             {

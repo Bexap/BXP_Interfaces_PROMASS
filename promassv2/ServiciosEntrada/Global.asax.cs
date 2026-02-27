@@ -20,7 +20,7 @@ namespace ServiciosEntrada
 
             log.Info("Iniciando Interfases SAP");
 
-            SessionPool.Init();
+            //SessionPool.Init();
         }
 
         protected void Session_Start(object sender, EventArgs e)

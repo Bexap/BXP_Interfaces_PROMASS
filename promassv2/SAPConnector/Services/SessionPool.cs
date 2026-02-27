@@ -27,7 +27,7 @@ namespace SAPConnector.Services
 
             log.Info("Iniciando pool de sesiones SAP: " + poolSessionsMin);
 
-            CrearSesiones(poolSessionsMin);
+            //CrearSesiones(poolSessionsMin);
 
             log.Info("Sesiones Creadas: " + poolSessionsMin);
         }
@@ -186,7 +186,7 @@ namespace SAPConnector.Services
                     sesionesDisponibles.Enqueue(sesion);
                 }
 
-                CrearSesiones(sesionesMuertas);
+                //CrearSesiones(sesionesMuertas);
             }
 
             // Si solo hay 2 o menos sesiones disponibles, agregar 2 mas hasta alcanzar el maximo
@@ -196,7 +196,7 @@ namespace SAPConnector.Services
 
 
                 int totalSesiones = sesionesDisponibles.Count + sesionesUso.Count;
-                if (totalSesiones < poolSessionsMax) CrearSesiones(2);
+                if (totalSesiones < poolSessionsMax) //CrearSesiones(2);
 
                 log.Debug("Se agregaron sesiones. Disponibles: " + sesionesDisponibles.Count + ", En Uso: " + sesionesUso.Count);
             }
