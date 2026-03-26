@@ -25,7 +25,7 @@ namespace SAPConnector.Services
 
         public ResultadoVO crearDocumento(DocumentoVO documento)
         {
-            Sesion sesion = null;
+            //Sesion sesion = null;
 
             try
             {
@@ -47,7 +47,7 @@ namespace SAPConnector.Services
             }
             finally
             {
-                Desconectar();
+                
             }
 
             return this.resultadoVO;

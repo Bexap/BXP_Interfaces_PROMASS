@@ -109,6 +109,7 @@
     <Compile Include="Services\FacturaService.cs" />
     <Compile Include="Services\OrdenCompraService.cs" />
     <Compile Include="Services\OrdenVentaService.cs" />
+    <Compile Include="ServiciosSAP\ServiceLayerClient.cs" />
     <Compile Include="sessionpool.svc.cs">
       <DependentUpon>sessionpool.svc</DependentUpon>
     </Compile>

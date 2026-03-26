@@ -21,8 +21,8 @@ namespace ServiciosEntrada.Services
 
         protected override void CrearDocumentoSAP()
         {
-            this.ordenVentaVO = (OrdenVentaVO)this.documentoVO;
-
+                this.ordenVentaVO = (OrdenVentaVO)this.documentoVO;
+           
             log.Info("Procesando Orden de Venta");
             log.Info(this.ordenVentaVO);
 
@@ -34,96 +34,106 @@ namespace ServiciosEntrada.Services
                 return;
             }
 
-            Documents ordenVenta = (Documents)company.GetBusinessObject(BoObjectTypes.oOrders);
-
-            ordenVenta.CardCode = ordenVentaVO.CardCode;
-            ordenVenta.DocDate = ordenVentaVO.DocDate;
-            ordenVenta.DocDueDate = ordenVenta.DocDate;
-            ordenVenta.DocCurrency = ordenVentaVO.CodigoMoneda;
-            ordenVenta.Series = int.Parse(ordenVentaVO.Serie);
-            ordenVenta.UserFields.Fields.Item("U_B1SYS_MainUsage").Value = "G03";
-
-            asignarCampoString(ordenVenta.UserFields.Fields, "U_BXP_CAS", ordenVentaVO.FolioCAS);
-            asignarCampoString(ordenVenta.UserFields.Fields, "U_BXP_Folio", ordenVentaVO.FolioRecepcion);
-
-            if (ConfigurationManager.AppSettings["CamposInformativos"] == "SI")
+            try
             {
-                #region Campos Informativos de Promass
+                var entidad = EntidadVO.EntidadActual;
+                var client = new ServiciosSAP.ServiceLayerClient();
 
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_CUENTA", ordenVentaVO.Cuenta);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_CLIENTE", ordenVentaVO.Cliente);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_ID_PROVEEDOR", ordenVentaVO.IDProveedor);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_PROVEEDOR", ordenVentaVO.Proveedor);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_ID_COMPANIA", ordenVentaVO.IDCompania);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_COMPANIA", ordenVentaVO.Compania);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_ESTATUS_REPORTE", ordenVentaVO.EstatusReporte);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_ESTATUS_SERVICIO", ordenVentaVO.EstatusServicio);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_ID_SERVICIO", ordenVentaVO.IDServicio);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_SERVICIO", ordenVentaVO.Servicio);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_ID_SUBSERVICIO", ordenVentaVO.IDSubServicio);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_SUBSERVICIO", ordenVentaVO.SubServicio);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_RETENCION", ordenVentaVO.Retencion);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_SUB_TOTAL", ordenVentaVO.SubTotal);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_IVA", ordenVentaVO.Iva);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_TOTAL", ordenVentaVO.Total);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_CARGO_CLIENTE", ordenVentaVO.CargoCliente);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_FORANEO_LOCAL", ordenVentaVO.ForaneoLocal);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_TIPO_ASIGNADOR", ordenVentaVO.TipoAsignador);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_COSTO_REAL", ordenVentaVO.CostoReal);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_FECHA_HORA_ALTA_CAS", ordenVentaVO.FechaHoraAltaCAS.ToString());
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_FECHA_HORA_ASIGNACION", ordenVentaVO.FechaHoraAsignacion.ToString());
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_FECHA_HORA_ARRIBO", ordenVentaVO.FechaHoraArribo.ToString());
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_FECHA_HORA_TERMINO", ordenVentaVO.FechaHoraTermino.ToString());
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_CIUDAD_ORIGEN", ordenVentaVO.CiudadOrigen);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_ESTADO_ORIGEN", ordenVentaVO.EstadoOrigen);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_CIUDAD_DESTINO", ordenVentaVO.CiudadDestino);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_ESTADO_DESTINO", ordenVentaVO.EstadoDestino);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_LATITUD_ORIGEN", ordenVentaVO.LatitudOrigen);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_LONGITUD_ORIGEN", ordenVentaVO.LongitudOrigen);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_LATITUD_DESTINO", ordenVentaVO.LatitudDestino);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_LONGITUD_DESTINO", ordenVentaVO.LongitudDestino);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_LATITUD_PROVEEDOR", ordenVentaVO.LatitudProveedor);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_LONGITUD_PROVEEDOR", ordenVentaVO.LongitudProveedor);
-                asignarCampoString(ordenVenta.UserFields.Fields, "U_EJECUTIVO", ordenVentaVO.Ejecutivo);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_KILOMETROS_CLIENTE", (double)ordenVentaVO.KilometrosCliente);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_KILOMETROS_PROV_CLIENTE", (double)ordenVentaVO.KilometrosProvCliente);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_ARRASTRE_SERVICIO", (double)ordenVentaVO.ArrastreServicio);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_BANDERAZO", (double)ordenVentaVO.Banderazo);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_COSTO_KM", (double)ordenVentaVO.CostoKM);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_MANIOBRAS", (double)ordenVentaVO.Maniobras);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_GASOLINA", (double)ordenVentaVO.Gasolina);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_CASETAS", (double)ordenVentaVO.Casetas);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_CORRESPONSALIA", (double)ordenVentaVO.Corresponsalia);
-                asignarCampoDouble(ordenVenta.UserFields.Fields, "U_MATERIAL", (double)ordenVentaVO.Material);
+                var documento = new Dictionary<string, object>()
+                {
+                    { "CardCode", ordenVentaVO.CardCode },
+                    { "DocDate", ordenVentaVO.DocDate.ToString("yyyy-MM-dd") },
+                    { "DocDueDate", ordenVentaVO.DocDate.ToString("yyyy-MM-dd") },
+                    { "DocCurrency", ordenVentaVO.CodigoMoneda },
+                    { "Series", int.Parse(ordenVentaVO.Serie) },
+                    { "U_B1SYS_MainUsage", "G03" },
+                    { "U_BXP_CAS", ordenVentaVO.FolioCAS },
+                    { "U_BXP_Folio", ordenVentaVO.FolioRecepcion }
+                };
+
+                if (ConfigurationManager.AppSettings["CamposInformativos"] == "SI")
+                {
+                    #region Campos Informativos de Promass
+
+                    documento.Add("U_CUENTA", ordenVentaVO.Cuenta);
+                    documento.Add("U_CLIENTE", ordenVentaVO.Cliente);
+                    documento.Add("U_ID_PROVEEDOR", ordenVentaVO.IDProveedor);
+                    documento.Add("U_PROVEEDOR", ordenVentaVO.Proveedor);
+                    documento.Add("U_ID_COMPANIA", ordenVentaVO.IDCompania);
+                    documento.Add("U_COMPANIA", ordenVentaVO.Compania);
+                    documento.Add("U_ESTATUS_REPORTE", ordenVentaVO.EstatusReporte);
+                    documento.Add("U_ESTATUS_SERVICIO", ordenVentaVO.EstatusServicio);
+                    documento.Add("U_ID_SERVICIO", ordenVentaVO.IDServicio);
+                    documento.Add("U_SERVICIO", ordenVentaVO.Servicio);
+                    documento.Add("U_ID_SUBSERVICIO", ordenVentaVO.IDSubServicio);
+                    documento.Add("U_SUBSERVICIO", ordenVentaVO.SubServicio);
+                    documento.Add("U_RETENCION", ordenVentaVO.Retencion);
+                    documento.Add("U_SUB_TOTAL", ordenVentaVO.SubTotal);
+                    documento.Add("U_IVA", ordenVentaVO.Iva);
+                    documento.Add("U_TOTAL", ordenVentaVO.Total);
+                    documento.Add("U_CARGO_CLIENTE", ordenVentaVO.CargoCliente);
+                    documento.Add("U_FORANEO_LOCAL", ordenVentaVO.ForaneoLocal);
+                    documento.Add("U_TIPO_ASIGNADOR", ordenVentaVO.TipoAsignador);
+                    documento.Add("U_COSTO_REAL", ordenVentaVO.CostoReal);
+                    documento.Add("U_FECHA_HORA_ALTA_CAS", ordenVentaVO.FechaHoraAltaCAS.ToString());
+                    documento.Add("U_FECHA_HORA_ASIGNACION", ordenVentaVO.FechaHoraAsignacion.ToString());
+                    documento.Add("U_FECHA_HORA_ARRIBO", ordenVentaVO.FechaHoraArribo.ToString());
+                    documento.Add("U_FECHA_HORA_TERMINO", ordenVentaVO.FechaHoraTermino.ToString());
+                    documento.Add("U_CIUDAD_ORIGEN", ordenVentaVO.CiudadOrigen);
+                    documento.Add("U_ESTADO_ORIGEN", ordenVentaVO.EstadoOrigen);
+                    documento.Add("U_CIUDAD_DESTINO", ordenVentaVO.CiudadDestino);
+                    documento.Add("U_ESTADO_DESTINO", ordenVentaVO.EstadoDestino);
+                    documento.Add("U_LATITUD_ORIGEN", ordenVentaVO.LatitudOrigen);
+                    documento.Add("U_LONGITUD_ORIGEN", ordenVentaVO.LongitudOrigen);
+                    documento.Add("U_LATITUD_DESTINO", ordenVentaVO.LatitudDestino);
+                    documento.Add("U_LONGITUD_DESTINO", ordenVentaVO.LongitudDestino);
+                    documento.Add("U_LATITUD_PROVEEDOR", ordenVentaVO.LatitudProveedor);
+                    documento.Add("U_LONGITUD_PROVEEDOR", ordenVentaVO.LongitudProveedor);
+                    documento.Add("U_EJECUTIVO", ordenVentaVO.Ejecutivo);
+                    documento.Add("U_KILOMETROS_CLIENTE", ordenVentaVO.KilometrosCliente);
+                    documento.Add("U_KILOMETROS_PROV_CLIENTE", ordenVentaVO.KilometrosProvCliente);
+                    documento.Add("U_ARRASTRE_SERVICIO", ordenVentaVO.ArrastreServicio);
+                    documento.Add("U_BANDERAZO", ordenVentaVO.Banderazo);
+                    documento.Add("U_COSTO_KM", ordenVentaVO.CostoKM);
+                    documento.Add("U_MANIOBRAS", ordenVentaVO.Maniobras);
+                    documento.Add("U_GASOLINA", ordenVentaVO.Gasolina);
+                    documento.Add("U_CASETAS", ordenVentaVO.Casetas);
+                    documento.Add("U_CORRESPONSALIA", ordenVentaVO.Corresponsalia);
+                    documento.Add("U_MATERIAL", ordenVentaVO.Material);
 
                 #endregion
-            }
-
-            for (int i = 0; i < ordenVentaVO.partidas.Count; i++)
-            {
-                var partida = ordenVentaVO.partidas[i];
-
-                if (i > 0) ordenVenta.Lines.Add();
-
-                ordenVenta.Lines.ItemCode = partida.ItemCode;
-                ordenVenta.Lines.Quantity = (double)partida.Quantity;
-                ordenVenta.Lines.UnitPrice = (double)partida.Precio;
-                ordenVenta.Lines.ProjectCode = ordenVentaVO.CodigoProyecto;
-                ordenVenta.Lines.CostingCode = ordenVentaVO.CentroCostos;
-            }
-
-            ObtenerResultado(ordenVenta.Add() == 0);
-            peticionesList.TryRemove(ordenVentaVO.FolioCAS, out _);
-
-            if (resultadoVO.Exito)
-            {
-                int docEntry = int.Parse(resultadoVO.DocEntry);
-                if (ordenVenta.GetByKey(docEntry))
-                {
-                    resultadoVO.DocNum = ordenVenta.DocNum.ToString();
                 }
-            }
 
+                    documento["DocumentLines"] = ordenVentaVO.partidas.Select(p => new
+                {
+                    ItemCode = p.ItemCode,
+                    Quantity = (double)p.Quantity,
+                    UnitPrice = (double)p.Precio,
+                    ProjectCode = ordenVentaVO.CodigoProyecto,
+                    CostingCode = ordenVentaVO.CentroCostos
+                }).ToList();
+
+                if (this.resultadoVO == null)
+                    this.resultadoVO = new ResultadoVO();
+
+                var response = client.Post(entidad, "Orders", documento);
+
+                var json = Newtonsoft.Json.Linq.JObject.Parse(response);
+
+                this.resultadoVO.Exito = true;
+                this.resultadoVO.DocEntry = json["DocEntry"]?.ToString();
+                this.resultadoVO.DocNum = json["DocNum"]?.ToString();
+                this.resultadoVO.Mensaje = "";
+            }
+            catch (Exception ex)
+            {
+                if (this.resultadoVO == null)
+                    this.resultadoVO = new ResultadoVO();
+
+                this.resultadoVO.Exito = false;
+                this.resultadoVO.Mensaje = ex.Message;
+            }
+            
             log.Info("Resultado " + resultadoVO);
         }
 
@@ -142,7 +152,7 @@ namespace ServiciosEntrada.Services
 
             EntidadVO.EntidadActual = EntidadVO.getEntidades()[ordenVentaVO.IDBaseDatos.ToString()];
             CatalogosDAO catalogosDAO = new CatalogosDAO(EntidadVO.EntidadActual.ConnectionString);
-            Conectar(EntidadVO.EntidadActual.CompanyDB, EntidadVO.EntidadActual.Id);
+            
 
             if (ordenVentaVO == null)
             {
