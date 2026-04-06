@@ -1,0 +1,55 @@
+"99"; "CAS_PRUEBAS";
+entidadVO.SAPPassword = sapb1
+                
+
+"200"; "PRUEBAS_GPO";
+entidadVO.SAPPassword = sapb1
+
+
+
+"201"; "PRUEBAS_WOW";
+
+entidadVO.SAPPassword = BBbb11!!
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tns="http://tempuri.org/"
+    xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/">
+    <soap:Body>
+        <CrearOrdenCompra
+            xmlns="http://tempuri.org/">
+            <ordenCompraVO>
+                <IDBaseDatos>201</IDBaseDatos>
+                <CodigoMoneda>MXP</CodigoMoneda>
+                <Serie>99</Serie>
+                <CentroCostos>LM08001</CentroCostos>
+                <FormaPago>99</FormaPago>
+                <MetodoPago>PPD</MetodoPago>
+                <UsoCFDI>G03</UsoCFDI>
+                <CardCode>PTB00134</CardCode>
+                <DocDate>2026-03-23</DocDate>
+                <FolioCAS>OCP00003</FolioCAS>
+                <partidas>
+                    <OrdenCompraPartidaVO>
+                        <ItemCode>TB-INV-00010</ItemCode>
+                        <Precio>90.52</Precio>
+                        <Quantity>500</Quantity>
+                    </OrdenCompraPartidaVO>
+                    <OrdenCompraPartidaVO>
+                        <ItemCode>TB-INV-00006</ItemCode>
+                        <Precio>67.24</Precio>
+                        <Quantity>600</Quantity>
+                    </OrdenCompraPartidaVO>
+                    <OrdenCompraPartidaVO>
+                        <ItemCode>TB-INV-00013</ItemCode>
+                        <Precio>45.69</Precio>
+                        <Quantity>1500</Quantity>
+                    </OrdenCompraPartidaVO>
+                </partidas>
+            </ordenCompraVO>
+        </CrearOrdenCompra>
+    </soap:Body>
+</soap:Envelope>

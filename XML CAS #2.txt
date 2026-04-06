@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tns="http://tempuri.org/"
+    xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/">
+    <soap:Body>
+        <CrearOrdenCompra
+            xmlns="http://tempuri.org/">
+            <ordenCompraVO>
+                <IDBaseDatos>10</IDBaseDatos>
+                <CodigoMoneda>MXP</CodigoMoneda>
+                <CentroCostos>LM08001</CentroCostos>
+                <ForaneoLocal>FORANEO</ForaneoLocal>
+                <CardCode>P000028</CardCode>
+                <TaxID>LPA950412GD2</TaxID>
+                <IDProveedor>37</IDProveedor>
+                <Proveedor>GRUAS ROFIL</Proveedor>
+                <CodigoProyecto>LIV</CodigoProyecto>
+                <IDCompania>1</IDCompania>
+                <Compania>Liverpool</Compania>
+                <EstatusReporte>NORMAL</EstatusReporte>
+                <EstatusServicio>CONCLUIDO</EstatusServicio>
+                <Serie>120</Serie>
+                <DocDate>2026-03-26T10:47:20.914</DocDate>
+                <FolioCAS>21104006</FolioCAS>
+                <IDSubServicio>4</IDSubServicio>
+                <Servicio>AUTOS</Servicio>
+                <IDServicio>4</IDServicio>
+                <SubServicio>GRUAS</SubServicio>
+                <Ejecutivo>OLIVA VALLEJO SIXTOS</Ejecutivo>
+                <SubTotal>1424.092</SubTotal>
+                <Iva>227.85472000000001</Iva>
+                <Total>1626.98304</Total>
+                <Banderazo>800</Banderazo>
+                <Retencion>24.963680000000004</Retencion>
+                <KilometrosProvCliente>22.289</KilometrosProvCliente>
+                <KilometrosCliente>22.289</KilometrosCliente>
+                <CargoCliente>NO</CargoCliente>
+                <FechaHoraAltaCAS>2026-03-26T08:43:16.000</FechaHoraAltaCAS>
+                <FechaHoraAsignacion>2026-03-26T08:51:49.070</FechaHoraAsignacion>
+                <FechaHoraArribo>2026-03-26T10:00:00.000</FechaHoraArribo>
+                <FechaHoraTermino>2026-03-26T10:40:00.000</FechaHoraTermino>
+                <Cuenta>13000037322026</Cuenta>
+                <Cliente>YAJAIRA SALAS SALAZAR</Cliente>
+                <CiudadOrigen>Mérida</CiudadOrigen>
+                <EstadoOrigen>Yucatán</EstadoOrigen>
+                <LatitudOrigen>20.9840963</LatitudOrigen>
+                <LongitudOrigen>-89.7069931</LongitudOrigen>
+                <CiudadDestino>Mérida</CiudadDestino>
+                <EstadoDestino>Yucatán</EstadoDestino>
+                <LatitudDestino>20.9664813</LatitudDestino>
+                <LongitudDestino>-89.6397396</LongitudDestino>
+                <LatitudProveedor>20.9767036</LatitudProveedor>
+                <LongitudProveedor>-89.6182717</LongitudProveedor>
+                <partidas>
+                    <OrdenCompraPartidaVO>
+                        <ItemCode>CA-SD-000001</ItemCode>
+                        <Precio>1424.092</Precio>
+                        <Quantity>1</Quantity>
+                    </OrdenCompraPartidaVO>
+                </partidas>
+            </ordenCompraVO>
+        </CrearOrdenCompra>
+    </soap:Body>
+</soap:Envelope>
+

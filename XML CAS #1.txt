@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tns="http://tempuri.org/"
+    xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/">
+    <soap:Body>
+        <CrearOrdenCompra
+            xmlns="http://tempuri.org/">
+            <ordenCompraVO>
+                <IDBaseDatos>10</IDBaseDatos>
+                <CodigoMoneda>MXP</CodigoMoneda>
+                <CentroCostos>LM08001</CentroCostos>
+                <ForaneoLocal>LOCAL</ForaneoLocal>
+                <CardCode>P009072</CardCode>
+                <TaxID>GAV231101PT9</TaxID>
+                <IDProveedor>35683</IDProveedor>
+                <Proveedor>GRUVIAL ASISTENCIA VIAL</Proveedor>
+                <CodigoProyecto>LIV</CodigoProyecto>
+                <IDCompania>1</IDCompania>
+                <Compania>Liverpool</Compania>
+                <EstatusReporte>NORMAL</EstatusReporte>
+                <EstatusServicio>CONCLUIDO</EstatusServicio>
+                <Serie>120</Serie>
+                <DocDate>2026-03-26T10:05:31.121</DocDate>
+                <FolioCAS>21101878</FolioCAS>
+                <IDSubServicio>4</IDSubServicio>
+                <Servicio>AUTOS</Servicio>
+                <IDServicio>4</IDServicio>
+                <SubServicio>GRUAS</SubServicio>
+                <Ejecutivo>SARA GERALDIN QUINTOS BERNAL</Ejecutivo>
+                <SubTotal>750</SubTotal>
+                <Iva>120</Iva>
+                <Total>840</Total>
+                <Banderazo>0</Banderazo>
+                <Retencion>30</Retencion>
+                <KilometrosProvCliente>20.025</KilometrosProvCliente>
+                <KilometrosCliente>20.025</KilometrosCliente>
+                <CargoCliente>NO</CargoCliente>
+                <FechaHoraAltaCAS>2026-03-23T17:11:53.000</FechaHoraAltaCAS>
+                <FechaHoraAsignacion>2026-03-23T17:34:46.400</FechaHoraAsignacion>
+                <FechaHoraArribo>2026-03-24T09:49:00.000</FechaHoraArribo>
+                <FechaHoraTermino>2026-03-24T10:50:00.000</FechaHoraTermino>
+                <Cuenta>13000047078501</Cuenta>
+                <Cliente>JOSE EDUARDO CHAVEZ MORALES</Cliente>
+                <CiudadOrigen>San Pedro Tlaquepaque</CiudadOrigen>
+                <EstadoOrigen>Jalisco</EstadoOrigen>
+                <LatitudOrigen>20.6112735</LatitudOrigen>
+                <LongitudOrigen>-103.3022606</LongitudOrigen>
+                <CiudadDestino>San Pedro Tlaquepaque</CiudadDestino>
+                <EstadoDestino>Jalisco</EstadoDestino>
+                <LatitudDestino>20.583702</LatitudDestino>
+                <LongitudDestino>-103.3354962</LongitudDestino>
+                <LatitudProveedor>20.6489923</LatitudProveedor>
+                <LongitudProveedor>-103.3975389</LongitudProveedor>
+                <partidas>
+                    <OrdenCompraPartidaVO>
+                        <ItemCode>CA-SD-000001</ItemCode>
+                        <Precio>750</Precio>
+                        <Quantity>1</Quantity>
+                    </OrdenCompraPartidaVO>
+                </partidas>
+            </ordenCompraVO>
+        </CrearOrdenCompra>
+    </soap:Body>
+</soap:Envelope>
